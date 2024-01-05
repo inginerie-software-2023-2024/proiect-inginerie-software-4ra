@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Traveling-Platform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b75b267cec3ec02742aa7323781bcde570bce72")]
 [assembly: System.Reflection.AssemblyProductAttribute("Traveling-Platform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Traveling-Platform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

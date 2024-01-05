@@ -8,7 +8,7 @@ using Traveling_Platform.Data;
 using System.Data;
 
 
-namespace SchoolChatOriginal.Controllers
+namespace Traveling_Platform.Controllers
 {
     public class ApplicationUsersController : Controller
     {
@@ -203,6 +203,7 @@ namespace SchoolChatOriginal.Controllers
             //user.LastName = newData.LastName;
             user.PhoneNumber = newData.PhoneNumber;
 
+            ///chestii
 
             // Cautam toate rolurile din baza de date
             var roles = db.Roles.ToList();
