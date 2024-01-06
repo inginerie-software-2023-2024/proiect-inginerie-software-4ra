@@ -10953,24 +10953,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rares\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Andrei\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rares\\Desktop\\proiect_is\\proiect-inginerie-software-4ra\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+      "projectUniqueName": "C:\\Users\\Andrei\\Documents\\GitHub\\proiect-inginerie-software-4ra\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
       "projectName": "Traveling-Platform",
-      "projectPath": "C:\\Users\\rares\\Desktop\\proiect_is\\proiect-inginerie-software-4ra\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
-      "packagesPath": "C:\\Users\\rares\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rares\\Desktop\\proiect_is\\proiect-inginerie-software-4ra\\Traveling-Platform\\Traveling-Platform\\obj\\",
+      "projectPath": "C:\\Users\\Andrei\\Documents\\GitHub\\proiect-inginerie-software-4ra\\Traveling-Platform\\Traveling-Platform\\Traveling-Platform.csproj",
+      "packagesPath": "C:\\Users\\Andrei\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andrei\\Documents\\GitHub\\proiect-inginerie-software-4ra\\Traveling-Platform\\Traveling-Platform\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rares\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Andrei\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
