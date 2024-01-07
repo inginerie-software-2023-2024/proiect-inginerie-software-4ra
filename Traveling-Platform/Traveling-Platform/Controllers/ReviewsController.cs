@@ -28,11 +28,15 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Reviews
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? id)
         {
-              return db.Reviews != null ? 
-                          View(await db.Reviews.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Reviews'  is null.");
+            if(id == null)
+            {
+                return View(db.Reviews.ToList());
+            }
+            var hotel = db.Hotels.Find(id);
+            ViewBag.Nume = hotel.name;
+            return View(db.Reviews.Where(r => r.IdHotel == id).ToList());
         }
 
         // GET: Reviews/Details/5
@@ -71,7 +75,7 @@ namespace Traveling_Platform.Controllers
                 review.Time= DateTime.Now;
                 db.Add(review);
                 await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new { id = review.IdHotel });
             }
             else { return Redirect("/Hotels/Details/" + review.IdHotel);
             }
@@ -162,7 +166,7 @@ namespace Traveling_Platform.Controllers
             }
             
             await db.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", new { id = review.IdHotel });
         }
 
         private bool ReviewExists(int id)
