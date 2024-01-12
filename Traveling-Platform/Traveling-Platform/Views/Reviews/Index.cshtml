@@ -5,48 +5,51 @@
 }
 
 <h1>@ViewBag.nume - Reviews</h1>
-
+<br/>
 <p>
-    <a asp-action="Create">Create New</a>
+    <button id="tari"><a asp-action="Create">Create New</a></button>
 </p>
+<br />
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model[0].Text)
+               <p>Text</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].Time)
+                <p>Time</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].ClientName)
+                <p>ClientName</p>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model[0].HotelName)
+                <p>HotelName</p>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in ViewBag.revs) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Text)
+                <p>@item.Text</p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Time)
+                <p>@item.Time</p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ClientName)
+                <p>@item.ClientName</p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HotelName)
+                <p>@item.HotelName</p>
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+                <button id="edit">
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    </button>
+                <button id="delete">  <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </button>
+                </td>
         </tr>
 }
     </tbody>
