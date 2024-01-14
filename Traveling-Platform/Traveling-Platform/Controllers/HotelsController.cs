@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +13,7 @@ using Traveling_Platform.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Traveling_Platform.Controllers
 {
@@ -73,9 +76,24 @@ namespace Traveling_Platform.Controllers
         // GET: Hotels
         public async Task<IActionResult> Index()
         {
-            return db.Hotels != null ?
+            List<Hotel> hotelList = new List<Hotel>();
+            foreach (Hotel hot in db.Hotels.ToList())
+            {
+                Hotel hotel = new Hotel();
+                hotel.id_hotel = hot.id_hotel;
+                hotel.name = hot.name;
+                hotel.description = hot.description;
+                hotel.PhoneNumber = hot.PhoneNumber;
+                hotel.City = db.Cities.Find(hot.id_city);
+                hotel.Manager = db.Users.Find(hot.id_manager);
+                hotelList.Add(hotel);
+            }
+            return View(hotelList);
+
+            /*return db.Hotels != null ?
                         View(await db.Hotels.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Hotels'  is null.");
+        */
         }
 
         // GET: Hotels/Details/5
@@ -122,6 +140,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Hotels/Create
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Create()
         {
             HotelViewModel hotel = new HotelViewModel();
@@ -133,8 +152,10 @@ namespace Traveling_Platform.Controllers
         // POST: Hotels/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Create(HotelViewModel model)
         {
             if (ModelState.IsValid)
@@ -174,6 +195,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Hotels/Edit/5
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || db.Hotels == null)
@@ -194,6 +216,7 @@ namespace Traveling_Platform.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Edit(int id, [Bind("id_hotel,name,description,PhoneNumber,id_city,id_manager")] Hotel hotel)
         {
             if (id != hotel.id_hotel)
@@ -225,6 +248,7 @@ namespace Traveling_Platform.Controllers
         }
 
         // GET: Hotels/Delete/5
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || db.Hotels == null)
@@ -245,6 +269,7 @@ namespace Traveling_Platform.Controllers
         // POST: Hotels/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (db.Hotels == null)
