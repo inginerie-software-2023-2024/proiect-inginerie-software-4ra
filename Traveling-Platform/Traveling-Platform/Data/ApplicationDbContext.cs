@@ -4,6 +4,21 @@ using Traveling_Platform.Models;
 
 namespace Traveling_Platform.Data
 {
+    public interface IApplicationDbContext
+    {
+        DbSet<ApplicationUser> Users { get; set; }
+        DbSet<City> Cities { get; set; }
+        DbSet<Country> Countries { get; set; }
+        DbSet<Hotel> Hotels { get; set; }
+        DbSet<Booking> Bookings { get; set; }
+        DbSet<Message> Messages { get; set; }
+        DbSet<Review> Reviews { get; set; }
+        DbSet<Room> Rooms { get; set; }
+        DbSet<Picture> Pictures { get; set; }
+
+        int SaveChanges();
+    }
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
